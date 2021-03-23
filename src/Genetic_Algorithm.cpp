@@ -86,8 +86,9 @@ double Evaluate_Circuit(int *circuit_vector, double tolerance, int max_iteration
 
   int concentrate_num = num_units;
   double Performance = 0.0;
-  for (int i = 0;i < vector_size; i++) {
-      if(circuit_vector[i] == concentrate_num){
+  
+  for (int i = 0; i < units.size(); i++) {
+      if(units[i].conc_num == concentrate_num){
           Performance += (units[i].conc_gor_rate*100 - units[i].conc_waste_rate*500);
       }
   }
