@@ -6,14 +6,17 @@ public:
     int tails_num;
     //A Boolean that is changed to true if the unit has been seen
     bool mark;
-
-    double conc_waste_num;
-    double conc_gor_num;
+    
+    int feed_gor_rate;
+    int feed_waste_rate;
+    
+    double conc_waste_rate;
+    double conc_gor_rate;
     double conc_purity;
     
-    double tails_waste_num;
-    double tails_gor_num;
+    double tails_waste_rate;
+    double tails_gor_rate;
     
-    void process();
+    void process(double in_gor_rate, double in_waste_rate);
 };
 
