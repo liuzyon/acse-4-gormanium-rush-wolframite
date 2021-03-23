@@ -6,18 +6,16 @@
 
 std::vector<CUnit> units(num_units);
 
-void CUnit::process(double in_gor_rate, double in_waste_rate){
-    if(in_gor_rate <= 0 || in_waste_rate <= 0){
-        std::cout << "unit process() input should greater than 0" << std::endl;
-    }
-    conc_gor_rate = in_gor_rate * 0.2;
-    conc_waste_rate = in_waste_rate * 0.05;
-    
-    tails_gor_rate = in_gor_rate - conc_gor_rate;
-    tails_waste_rate = in_waste_rate - conc_waste_rate;
-    
-    conc_purity = conc_gor_rate / (conc_gor_rate + conc_waste_rate);
-}
+// void CUnit::process(){
+//    conc_gor_rate = feed_gor_rate * 0.2;
+//    conc_waste_rate = feed_waste_rate * 0.05;
+
+//    tails_gor_rate = feed_gor_rate - conc_gor_rate;
+//    tails_waste_rate = feed_waste_rate - conc_waste_rate;
+
+//    conc_purity = conc_gor_rate / (conc_gor_rate + conc_waste_rate);
+// }
+
 
 bool Check_Validity(int *circuit_vector)
 {
