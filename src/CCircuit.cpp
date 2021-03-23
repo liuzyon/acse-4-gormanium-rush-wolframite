@@ -6,33 +6,32 @@
 
 std::vector<CUnit> units(num_units);
 
-void CUnit::process(double in_gor_rate, double in_waste_rate){
-    if(in_gor_rate <= 0 || in_waste_rate <= 0){
-        std::cout << "unit process() input should greater than 0" << std::endl;
-    }
-    conc_gor_rate = in_gor_rate * 0.2;
-    conc_waste_rate = in_waste_rate * 0.05;
+// void CUnit::process(double in_gor_rate, double in_waste_rate){
+//     if(in_gor_rate <= 0 || in_waste_rate <= 0){
+//         std::cout << "unit process() input should greater than 0" << std::endl;
+//     }
+//     conc_gor_rate = in_gor_rate * 0.2;
+//     conc_waste_rate = in_waste_rate * 0.05;
     
-    tails_gor_rate = in_gor_rate - conc_gor_rate;
-    tails_waste_rate = in_waste_rate - conc_waste_rate;
+//     tails_gor_rate = in_gor_rate - conc_gor_rate;
+//     tails_waste_rate = in_waste_rate - conc_waste_rate;
     
-    conc_purity = conc_gor_rate / (conc_gor_rate + conc_waste_rate);
-}
+//     conc_purity = conc_gor_rate / (conc_gor_rate + conc_waste_rate);
+// }
 
-void output_circuit(int *circuit_vector){
-    circuit_vector[0] = 0;
-    int count = 1;
-    for (int i = 0; i < units.size(); i++)
-    {
-        circuit_vector[count] = units[i].conc_num;
-        circuit_vector[++count] = units[i].tails_num;
-        count++;
-    }
-}
+// void output_circuit(int *circuit_vector){
+//     circuit_vector[0] = 0;
+//     int count = 1;
+//     for (int i = 0; i < units.size(); i++)
+//     {
+//         circuit_vector[count] = units[i].conc_num;
+//         circuit_vector[++count] = units[i].tails_num;
+//         count++;
+//     }
+// }
 
 bool Check_Validity(int *circuit_vector)
 {
-
   return true;
 }
 
