@@ -87,7 +87,5 @@ void simulation()
 
         iter_num++;
     }
-
-
     
 }
