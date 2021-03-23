@@ -13,6 +13,11 @@ public:
     
     double tails_waste_num;
     double tails_gor_num;
+
+    double feed_gor_num;
+    double feed_waste_num;
+
+    double old_feed;
     
     void process();
 };
