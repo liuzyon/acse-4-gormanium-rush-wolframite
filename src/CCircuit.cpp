@@ -19,17 +19,6 @@ void CUnit::process(double in_gor_rate, double in_waste_rate){
     conc_purity = conc_gor_rate / (conc_gor_rate + conc_waste_rate);
 }
 
-void output_circuit(int *circuit_vector){
-    circuit_vector[0] = 0;
-    int count = 1;
-    for (int i = 0; i < units.size(); i++)
-    {
-        circuit_vector[count] = units[i].conc_num;
-        circuit_vector[++count] = units[i].tails_num;
-        count++;
-    }
-}
-
 bool Check_Validity(int *circuit_vector)
 {
 
