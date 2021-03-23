@@ -6,6 +6,8 @@ public:
     int tails_num;
     //A Boolean that is changed to true if the unit has been seen
     bool mark;
+
+    int id;
     
     double conc_waste_rate;
     double conc_gor_rate;
