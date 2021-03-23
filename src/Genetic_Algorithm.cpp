@@ -5,9 +5,10 @@
 #include "CUnit.h"
 #include "CCircuit.h"
 #include "Genetic_Algorithm.h"
+#include "CCircuit.cpp"
 
 int answer_vector[2*num_units+1] = {0, 1, 2, 3, 4, 4, 5, 6, 7, 7, 8, 8, 9,
-				10, 11, 10, 11, 10, 11, 10, 11}  ;
+                10, 11, 10, 11, 10, 11, 10, 11}  ;
 
 double Evaluate_Circuit(int *circuit_vector, double tolerance, int max_iterations) {
 
@@ -83,11 +84,12 @@ double Evaluate_Circuit(int *circuit_vector, double tolerance, int max_iteration
       iter_num++;
   }  
 
-  double Performance = 0.0; 
-  for (int i=0;i<vector_size;i++) {
-    //answer_vector is a predetermined answer vector (same size as circuit_vector)
-    Performance += (20-std::abs(circuit_vector[i]-answer_vector[i]))*100.0; 
+  int concentrate_num = num_units;
+  double Performance = 0.0;
+  for (int i = 0;i < vector_size; i++) {
+      if(circuit_vector[i] == concentrate_num){
+          Performance += (units[i].conc_gor_rate*100 - units[i].conc_waste_rate*500);
+      }
   }
-  return Performance; 
-
+  return Performance;
 }
