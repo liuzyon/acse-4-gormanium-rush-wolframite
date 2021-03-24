@@ -10,7 +10,7 @@
 // int answer_vector[2*num_units+1] = {0, 1, 2, 3, 4, 4, 5, 6, 7, 7, 8, 8, 9,
 //                 10, 11, 10, 11, 10, 11, 10, 11}  ;
 
-double Evaluate_Circuit(int *circuit_vector, double tolerance, int max_iterations) {
+double Evaluate_Circuit(int *circuit_vector, int num_units, double tolerance, int max_iterations) {
 
     // int vector_size = 2*num_units+1;
 
