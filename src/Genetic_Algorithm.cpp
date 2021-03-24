@@ -11,10 +11,10 @@
 
 double Evaluate_Circuit(int *circuit_vector, double tolerance, int max_iterations) {
 
-    int vector_size = 2*num_units+1;
+    // int vector_size = 2*num_units+1;
 
-  //创建各个unit
-  std::vector<CUnit> units(num_units);
+    //创建各个unit
+    std::vector<CUnit> units(num_units);
 
     // 赋值每个unit id, 以及连接到精矿流和尾矿流的单元id
     for (int i = 0; i < num_units; i++)
