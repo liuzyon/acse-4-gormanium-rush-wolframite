@@ -4,7 +4,6 @@
 #include "CUnit.h"
 #include "CCircuit.h"
 
-int num_units;
 std::vector<CUnit> units(num_units);
 
 bool Check_Validity(int *circuit_vector)

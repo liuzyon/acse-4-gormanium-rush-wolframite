@@ -5,9 +5,9 @@
 #include "CUnit.h"
 #include "CCircuit.h"
 #include "Genetic_Algorithm.h"
-// #include "CUnit.cpp"
 
-double Evaluate_Circuit(int *circuit_vector, double tolerance, int max_iterations) {
+
+double Evaluate_Circuit(int *circuit_vector, int num_units, double tolerance, int max_iterations) {
 
     // int vector_size = 2*num_units+1;
 
