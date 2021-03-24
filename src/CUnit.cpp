@@ -1,8 +1,5 @@
-//
-// Created by Zhiyong Liu on 2021/3/24.
-//
 #include "CUnit.h"
-
+#include "CCircuit.h"
 void CUnit::setId(int id)
 {
     CUnit::id = id;

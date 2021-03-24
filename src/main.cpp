@@ -12,7 +12,7 @@ int main(int argc, char * argv[])
     int circuit_vector[11] = {0,4,3,2,0,5,4,4,6,2,1};
     int max_iterations = 1000;
     double tolerance = 1.0e-6;
-    double performance = Evaluate_Circuit(&circuit_vector[0], num_units, tolerance, max_iterations);
+    double performance = Evaluate_Circuit(circuit_vector, 5, tolerance, max_iterations);
     cout << "Performance: " <<  performance << endl;
     return 0;
 }
