@@ -14,9 +14,6 @@ double Evaluate_Circuit(int *circuit_vector, double tolerance, int max_iteration
 
   int vector_size = 2*num_units+1;
 
-  // n个unit：0 到 n-1 标识别unit，n和n+1标识最终精矿流和最终尾矿流
-  // int circuit_vector[9] = {0, 1, 3, 2, 0, 4, 3, 0, 5};
-
   //创建各个unit
   std::vector<CUnit> units(num_units);
 
@@ -63,10 +60,18 @@ double Evaluate_Circuit(int *circuit_vector, double tolerance, int max_iteration
       // 检查每个单元，将其精矿流速和尾矿流速加到合适单元的进料上（基于环路向量中各单元的关系），这也将导致对整个环路的精矿流和尾矿流的最新估计
       for (int i = 0; i < num_units; i++)
       {
-          units[units[i].conc_num].feed_gor_rate += units[i].conc_gor_rate;
-          units[units[i].conc_num].feed_waste_rate += units[i].conc_waste_rate;
-          units[units[i].tails_num].feed_waste_rate += units[i].tails_waste_rate;
-          units[units[i].tails_num].feed_gor_rate += units[i].tails_gor_rate;
+          if (units[i].conc_num < num_units)
+          {
+              units[units[i].conc_num].feed_gor_rate += units[i].conc_gor_rate;
+              units[units[i].conc_num].feed_waste_rate += units[i].conc_waste_rate;
+            
+          }
+
+          if (units[i].tails_num < num_units)
+          {
+              units[units[i].tails_num].feed_waste_rate += units[i].tails_waste_rate;
+              units[units[i].tails_num].feed_gor_rate += units[i].tails_gor_rate;
+          }
       }
 
       int steady_unit = 0;
