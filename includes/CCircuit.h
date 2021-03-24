@@ -1,4 +1,5 @@
 #pragma once
+extern int num_units;
 const double circuit_gor = 10;
 const double circuit_waste = 100;
 
