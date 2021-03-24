@@ -1,15 +1,18 @@
-#include <stdio.h>
+#include <iostream>
 #include <vector>
 #include <cmath>
-// #include "CUnit.h"
-// #include "CCircuit.h"
-// #include "CCircuit.cpp"
+#include "CUnit.h"
+#include "CCircuit.h"
 #include "Genetic_Algorithm.h"
 
 using namespace std;
 int main(int argc, char * argv[])
 {
-    int circuit_vector[11] = {0, 4, 3, 2, 0, 5, 4, 4, 6, 2, 1};
-    Evaluate_Circuit(circuit_vector, 1.0e-6, 1000);
+    cout << "Starting genetic algorithm program..." << endl;
+    int circuit_vector[11] = {0,4,3,2,0,5,4,4,6,2,1};
+    int max_iterations = 1000;
+    double tolerance = 1.0e-6;
+    double performance = Evaluate_Circuit(&circuit_vector[0], tolerance, max_iterations);
+    cout << "Performance: " <<  performance << endl;
     return 0;
 }
