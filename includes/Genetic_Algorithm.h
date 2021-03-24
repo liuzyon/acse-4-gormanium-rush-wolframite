@@ -1,2 +1,2 @@
 #pragma once
-double Evaluate_Circuit(int *circuit_vector, double tolerance, int max_iterations);
+double Evaluate_Circuit(int *circuit_vector, int num_units, double tolerance, int max_iterations);
