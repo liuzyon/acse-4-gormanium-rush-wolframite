@@ -10,8 +10,8 @@ void CUnit::setId(int id)
 
 void CUnit::init()
 {
-    feed_gor_rate = 10;
-    feed_waste_rate = 100;
+    feed_gor_rate = circuit_gor;
+    feed_waste_rate = circuit_waste;
 }
 
 void CUnit::cal_con_tail()
