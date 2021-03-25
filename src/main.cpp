@@ -1,4 +1,5 @@
 #include <iostream>
+#include "CCircuit.h"
 #include "Genetic_Algorithm.h"
 
 using namespace std;
