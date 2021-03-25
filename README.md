@@ -1,5 +1,8 @@
 # Gormanium-Rush: Optimal mineral recovery using Genetic Algorithms
 
+[![GitHub version](https://badge.fury.io/gh/boennemann%2Fbadges.svg)](http://badge.fury.io/gh/boennemann%2Fbadges)
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php) 
+
 Gormanium-Rush is a C++ and Python package to implement optimized mineral recovery using Genetic Algorithms.
 
 ## Table of Contents
