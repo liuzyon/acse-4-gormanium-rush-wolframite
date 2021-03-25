@@ -12,7 +12,7 @@ using namespace std;
 int main(int argc, char * argv[])
 {
     cout << "Starting genetic algorithm program..." << endl;
-    int circuit_vector[21] = {4, 3, 4, 2, 6, 10, 3, 2, 1, 3, 9, 2, 0, 2, 5, 1, 8, 6, 10, 6, 7};
+    int circuit_vector[41] = {18, 14, 2, 14, 16, 14, 9, 8, 19, 20, 15, 8, 18,18,12,14,0,4,13,14,10,3,11,19,17,18,21,4,14,8,3,20,8,14,7,5,6,14,1,8,5};
     int pass = check_requ_two(circuit_vector);
     cout << "是否通过：" << pass;
     // int max_iterations = 1000;

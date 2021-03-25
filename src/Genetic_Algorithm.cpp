@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <cmath>
 #include <vector>
-
 #include "CUnit.h"
 #include "CCircuit.h"
 #include "Genetic_Algorithm.h"
