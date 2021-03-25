@@ -89,7 +89,7 @@ public:
 
     /**
      * @brief This function is used to transfer the tailing flow
-     * @param units an reference of vector
+     * @param units : an reference of vector
      * @return void
      * @details Add the tailings flows to the appropriate unit’s feed 
      *          based on the linkages in the circuit vector.
