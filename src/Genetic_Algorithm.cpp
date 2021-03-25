@@ -9,8 +9,6 @@
 
 double Evaluate_Circuit(int *circuit_vector, int num_units, double tolerance, int max_iterations) {
 
-    // int vector_size = 2*num_units+1;
-
     //创建各个unit
     std::vector<CUnit> units(num_units);
 
