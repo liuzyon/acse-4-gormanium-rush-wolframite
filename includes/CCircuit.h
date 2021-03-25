@@ -6,7 +6,7 @@ const int num_units = 20;
 
 const double circuit_gor = 10;
 const double circuit_waste = 100;
-const double purity_feed = circuit_gor/(circuit_gor+circuit_waste);
+const double purity_feed = 100*circuit_gor/(circuit_gor+circuit_waste);
 
 const double gor_price = 100;
 const double waste_price = 500;
