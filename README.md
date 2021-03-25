@@ -21,6 +21,7 @@ Gormanium-Rush can determine the optimum circuit configuration and performance f
 ## Installation
 
 To install Gormanium-Rush, run the following commands:
+
 ```
 # get the code
 git clone https://github.com/acse-2020/acse-4-gormanium-rush-wolframite.git
@@ -30,22 +31,38 @@ cd acse-4-gormanium-rush-wolframite
 pip install -r requirements.txt
 ```
 
+The visualization python module requires a working python installation of Graphviz. For conda users a working environment can be 
+
+```
+conda env create -f environment.yml
+conda activate acse-4-p3
+```
+
+or you can (conda) install the packages yourself
+```
+conda install graphviz python-graphviz
+```
+
 ### Automated testing
 
 
 ## Usage
 
 To use Gormanium-Rush, first run the main simulator with this command:
+
 ```
 # run main simulator
 gcc src/main.cpp
 ```
+
 This will generate info.txt in output folder, which is the dependent file of visualization.
 
 To visualise the output circuit, run the following command:
+
 ```
 python post_processing.py
 ```
+
 Then the circuit connection graph will be generated in output folder.
 
 ### Examples
