@@ -8,11 +8,17 @@
 
 
 double Evaluate_Circuit(int *circuit_vector, int num_units, double tolerance, int max_iterations) {
+<<<<<<< HEAD
 
     //创建各个unit
+=======
+    // int vector_size = 2*num_units+1;
+
+    // create an array of units in the circuit
+>>>>>>> f2409ecfc6093b13e25d5a3a156e2d84afc50c22
     std::vector<CUnit> units(num_units);
 
-    // 赋值每个unit id, 以及连接到精矿流和尾矿流的单元id
+    // Initilization: set units id and their connections
     for (int i = 0; i < num_units; i++)
     {
         units[i].setId(i);
@@ -20,7 +26,7 @@ double Evaluate_Circuit(int *circuit_vector, int num_units, double tolerance, in
         units[i].tails_num = circuit_vector[i*2+2];
     }
 
-    //给出给电路中每个单元的两个成分进料速率的初步猜测
+    // Give an initial guess for the feed rate of both components to every cell in the circuit
     for (int i = 0; i < num_units; i++)
     {
         units[i].init();
@@ -30,22 +36,24 @@ double Evaluate_Circuit(int *circuit_vector, int num_units, double tolerance, in
     int steady_unit = 0;
     while (iter_num < max_iterations)
     {
-        // 对于每个单元，使用当前对进料流速的猜测来计算精矿和尾矿流中每个组分的流速（即根据前面提到的比例）这里可以写成成员方法
+        // For each unit use the current guess of the feed flowrates to calculate the flowrate of each component in both the concentrate and tailings streams
         for (int i = 0; i < num_units; i++)
         {
             units[i].cal_con_tail();
         }
 
-        // 对每个单元，将进料的当前值存储起来作为旧进料值，并将所有组分的当前进料值设置为0 这里可以写作成员方法
+        // Store the current value of the feed to each cell as an old feed value and set the current value for all components to zero
         for (int i = 0; i < num_units; i++)
         {
             units[i].reset();
         }
     
-        // 设置接收环路进料的那个单元的进料等于环路进料的总流速
+        // Set the feed to the cell receiving the circuit feed equal to the flowrates of the circuit feed
         units[circuit_vector[0]].init();
 
-        // 检查每个单元，将其精矿流速和尾矿流速加到合适单元的进料上（基于环路向量中各单元的关系），这也将导致对整个环路的精矿流和尾矿流的最新估计
+        // Go over each unit and add the concentrate and tailings flows to the appropriate unit’s feed
+        // based on the linkages in the circuit vector. This will also result in an updated estimate for the
+        // overall circuit concentrate and tailings streams’ flows.
         for (int i = 0; i < num_units; i++)
         {
             if (units[i].conc_num < num_units)
@@ -60,7 +68,8 @@ double Evaluate_Circuit(int *circuit_vector, int num_units, double tolerance, in
         }
 
         steady_unit = 0;
-        // 对每个单元，用新的进料流量和旧的进料流速（之前存的）作比较。如果任何一个单元它的相对变化在给定的设定阈值之上，则重复步骤2。 比较可以写作成员方法
+        // Check the difference between the newly calculated feed rate and the old feed rate for each cell.
+        // If any of them have a relative change that is above a given threshold then repeat from step 2; otherwise, leave the loop.
         for (int i = 0; i < num_units; i++)
         {
             double error = units[i].compare_to_old();
@@ -74,17 +83,20 @@ double Evaluate_Circuit(int *circuit_vector, int num_units, double tolerance, in
         iter_num++;
     }  
 
+    //  Based on the flowrates of the overall circuit concentrate stream, calculate a performance value for the circuit. 
     int concentrate_num = num_units;
     double Performance = 0.0;
 
     if (steady_unit == num_units){
         for (int i = 0; i < num_units; i++) {
             if(units[i].conc_num == concentrate_num){
-                Performance += (units[i].conc_gor_rate*100 - units[i].conc_waste_rate*500);
+                Performance += (units[i].conc_gor_rate*gor_price - units[i].conc_waste_rate*waste_price);
             }
         }
     }else{
-        Performance = - circuit_waste*500;
+        // If there is no convergence, use the worst possible performance as the performance value 
+        // the flowrate of waste in the feed times the value of the waste, which is usually a negative number
+        Performance = - circuit_waste*waste_price;
     }
   
     return Performance;
