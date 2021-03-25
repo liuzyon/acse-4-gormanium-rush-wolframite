@@ -8,7 +8,6 @@
 
 
 double Evaluate_Circuit(int *circuit_vector, int num_units, double tolerance, int max_iterations) {
-
     // int vector_size = 2*num_units+1;
 
     // create an array of units in the circuit
@@ -92,7 +91,7 @@ double Evaluate_Circuit(int *circuit_vector, int num_units, double tolerance, in
     }else{
         // If there is no convergence, use the worst possible performance as the performance value 
         // the flowrate of waste in the feed times the value of the waste, which is usually a negative number
-        Performance = - circuit_waste*500;
+        Performance = - circuit_waste*waste_price;
     }
   
     return Performance;
