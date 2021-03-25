@@ -11,45 +11,40 @@
 #include <vector>
 #include <cmath>
 
-/** 
- * CUnit class
- * */
+/**
+* @brief This is a class that represent a CUnit.
+* The Cunit has some attributes and actions used in the circuit simulation.
+* 
+*/
 class CUnit {
 
 private:
-    /// id of Unit
-    int id;
+
+    int id; ///< ID of Unit, the id is range from 0 to num_units -1.
 
 public:
-    /// index of the unit to which this unit’s concentrate stream is connected
-    int conc_num;
 
-    /// index of the unit to which this unit’s concentrate stream is connected
-    int tails_num;
+    int conc_num;   ///< index of the unit to which this unit’s concentrate stream is connected
 
-    /// A Boolean that is changed to true if the unit has been seen
-    bool mark;
+    int tails_num;  ///< index of the unit to which this unit’s concentrate stream is connected
 
-    /// the waste rate of concentrate stream in this unit
-    double conc_waste_rate;
+    bool mark;  ///< A Boolean that is changed to true if the unit has been seen
 
-    /// the valuable material rate of concentrate stream in this unit
-    double conc_gor_rate;
+    double conc_waste_rate; ///< the waste rate of concentrate stream in this unit
 
-    /// the waste rate of tail stream in this unit
-    double tails_waste_rate;
+    double conc_gor_rate;   ///< the valuable material rate of concentrate stream in this unit
 
-    /// the valuable rate of tail stream in this unit
+    double tails_waste_rate;    ///< the waste rate of tail stream in this unit
+
+    ///< the valuable rate of tail stream in this unit
     double tails_gor_rate;
 
-    /// the valuable material rate of feed in this unit
+    ///< the valuable material rate of feed in this unit
     double feed_gor_rate;
 
-    /// the waste rate of feed in this unit
-    double feed_waste_rate;
+    double feed_waste_rate; ///< the waste rate of feed in this unit
 
-    /// old feed rate in this unit
-    double old_feed_rate;
+    double old_feed_rate;   ///< old feed rate in this unit
 
     /**
      * @brief Set the id of unit
