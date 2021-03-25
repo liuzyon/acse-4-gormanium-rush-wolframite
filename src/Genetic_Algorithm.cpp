@@ -86,7 +86,7 @@ double Evaluate_Circuit(int *circuit_vector, int num_units, double tolerance, in
     if (steady_unit == num_units){
         for (int i = 0; i < num_units; i++) {
             if(units[i].conc_num == concentrate_num){
-                Performance += (units[i].conc_gor_rate*100 - units[i].conc_waste_rate*500);
+                Performance += (units[i].conc_gor_rate*gor_price - units[i].conc_waste_rate*waste_price);
             }
         }
     }else{
