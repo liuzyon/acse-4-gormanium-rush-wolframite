@@ -2,7 +2,7 @@
 
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php) 
 
-Gormanium-Rush is a C++ and Python package to implement optimized mineral recovery using Genetic Algorithms.
+Gormanium-Rush is a C++ package to implement optimized mineral recovery using Genetic Algorithms with a Python module for visualization. 
 
 ## Table of Contents
 
