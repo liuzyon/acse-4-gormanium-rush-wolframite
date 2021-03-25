@@ -9,7 +9,7 @@ Gormanium-Rush is a C++ and Python package to implement optimized mineral recove
 - [About Gormanium-Rush](#about-gormanium-rush)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Performance](#performance)
+- [API](#API)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -50,9 +50,7 @@ python Post_Processing.py
 Then the circuit connection graph will be generate in output folder.
 
 
-## Performance(API)
-
-
+## API
 
 
 ## Contributing
