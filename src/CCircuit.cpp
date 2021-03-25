@@ -76,7 +76,7 @@ bool check_requ_two(int *circuit_vector)
   
   int test_con = accumulate(vis_con, vis_con+num_units+2, 0);
   // cout << "test final concentrate: " << test1 << endl;
-  bool con_pass = (test_con == 6) && (vis_con[num_units+1] == 0);
+  bool con_pass = (test_con == num_units+1) && (vis_con[num_units+1] == 0);
   
   // cout << "Test for each cell to final talings" << endl;
   //test for each cell to final tailings
@@ -90,7 +90,7 @@ bool check_requ_two(int *circuit_vector)
   
   int test_tail = accumulate(vis_tail, vis_tail+num_units+2, 0);
   // cout  <<  "test final tailings: " << test2 << endl;
-  bool tail_pass = (test_tail == 6) && (vis_tail[num_units] == 0);
+  bool tail_pass = (test_tail == num_units+1) && (vis_tail[num_units] == 0);
 
 
   return con_pass && tail_pass;
