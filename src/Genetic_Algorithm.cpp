@@ -8,14 +8,9 @@
 
 
 double Evaluate_Circuit(int *circuit_vector, int num_units, double tolerance, int max_iterations) {
-<<<<<<< HEAD
-
-    //创建各个unit
-=======
     // int vector_size = 2*num_units+1;
 
     // create an array of units in the circuit
->>>>>>> f2409ecfc6093b13e25d5a3a156e2d84afc50c22
     std::vector<CUnit> units(num_units);
 
     // Initilization: set units id and their connections
