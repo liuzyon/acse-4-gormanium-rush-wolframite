@@ -3,8 +3,22 @@ import graphviz
 
 def visualization(unit_num, vector, vector_string, iteration, performance):
     """
-    This function can draw the citcuit connection graph with input information.
-    The graph will be generate in png format in output folder.
+    This function can draw the circuit connection graph with input information.
+    The graph will be generated in png format in the output folder.
+
+    Parameters
+    ----------
+
+    unit_num : integer
+        Number of units used on the circuit
+    vector : list
+        Vector of connections between the units
+    vector_string : string
+        List of graph connections to be displayed
+    iteration : string
+        Number of iterations to be displayed
+    performance : string
+        Score of circuit performance to be displayed
     """
     vec = graphviz.Digraph('Circuit connections')
 
