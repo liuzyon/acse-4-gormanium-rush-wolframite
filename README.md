@@ -1,14 +1,5 @@
 # Gormanium-Rush: Optimal mineral recovery using Genetic Algorithms
 
-[![Build Status for the Core backend](https://github.com/devitocodes/devito/workflows/CI-core/badge.svg)](https://github.com/devitocodes/devito/actions?query=workflow%3ACI-core)
-[![Build Status with MPI](https://github.com/devitocodes/devito/workflows/CI-mpi/badge.svg)](https://github.com/devitocodes/devito/actions?query=workflow%3ACI-mpi)
-[![Build Status on GPU](https://github.com/devitocodes/devito/workflows/CI-gpu/badge.svg)](https://github.com/devitocodes/devito/actions?query=workflow%3ACI-gpu)
-[![Code Coverage](https://codecov.io/gh/devitocodes/devito/branch/master/graph/badge.svg)](https://codecov.io/gh/devitocodes/devito)
-[![Slack Status](https://img.shields.io/badge/chat-on%20slack-%2336C5F0)](https://join.slack.com/t/devitocodes/shared_invite/zt-gtd2yxj9-Y31YKk_7lr9AwfXeL2iMFg)
-[![asv](http://img.shields.io/badge/benchmarked%20by-asv-blue.svg?style=flat)](https://devitocodes.github.io/devito-performance)
-[![PyPI version](https://badge.fury.io/py/devito.svg)](https://badge.fury.io/py/devito)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/devitocodes/devito/master)
-
 Gormanium-Rush is a C++ and Python package to implement optimized mineral recovery using Genetic Algorithms.
 
 ## Table of Contents
@@ -59,20 +50,7 @@ Then the circuit connection graph will be generate in output folder.
 
 ## Performance(API)
 
-If you are interested in any of the following
 
-* Generation of parallel code (CPU, GPU, multi-node via MPI);
-* Performance tuning;
-* Benchmarking operators;
-
-then you should take a look at this
-[README](https://github.com/devitocodes/devito/blob/master/benchmarks/user).
-
-You may also be interested in
-[TheMatrix](https://github.com/devitocodes/thematrix) -- a cross-architecture
-benchmarking framework showing the performance of several production-grade
-seismic operators implemented with Devito. This is now our flagship project
-towards neat, open, and reproducible science.
 
 
 ## Contributing
