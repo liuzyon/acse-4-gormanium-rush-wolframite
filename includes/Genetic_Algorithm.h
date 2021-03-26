@@ -10,9 +10,9 @@
 
 //Hyper parameters
 static int POP_SIZE = 150;
-static double CROSSOVER_RATE = 0.8;
-static double MUTATION_RATE = 0.001;
-static int MAX_ITERATION = 1000;
+static double CROSSOVER_RATE = 0.85;
+static double MUTATION_RATE = 0.01;
+static int MAX_ITERATION = 5000;
 
 //Solution class, store the vector and fitness value
 class solution {
@@ -20,8 +20,6 @@ public:
 	int* curit_vector;
 	double fitness_value;
 };
-
-bool same_vector(int* v1, int* v2);
 
 void print_vector(int* vec);
 
@@ -39,4 +37,6 @@ void cross_over(solution* curt_pop, solution& child_1, solution& child_2);
 
 void mutation(solution& curt_sol);
 
-void Genetic_algorithm();
+double Genetic_algorithm();
+
+void output(solution& best, int gen);
