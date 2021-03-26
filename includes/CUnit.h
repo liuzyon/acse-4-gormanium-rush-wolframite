@@ -86,16 +86,11 @@ public:
     void transf_con(std::vector<CUnit> &units);
 
     /**
-<<<<<<< HEAD
      * @brief This function is used to transfer the tailing flow
      * @param units : an reference of vector
      * @return void
      * @details Add the tailings flows to the appropriate unit’s feed 
      *          based on the linkages in the circuit vector.
-=======
-     * @brief Add the tailings flows to the appropriate unit’s feed based on the linkages in the circuit vector.
-     * @param units an reference of vector
->>>>>>> 46ee25e2a724ceb7b921fa2c5fa48121a7962e44
      */
     void transf_tail(std::vector<CUnit> &units);
 

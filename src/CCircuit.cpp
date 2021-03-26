@@ -105,10 +105,6 @@ bool check_requ_two(int *circuit_vector)
   //test for each cell to final concentrate
   int vis_con[num_units+2]={0};
   dfs(num_units, vis_con, inverse_graph);
-<<<<<<< HEAD
-=======
-
->>>>>>> 46ee25e2a724ceb7b921fa2c5fa48121a7962e44
   
   int test_con = accumulate(vis_con, vis_con+num_units+2, 0);
   // cout << "test final concentrate: " << test1 << endl;
@@ -118,11 +114,8 @@ bool check_requ_two(int *circuit_vector)
   int vis_tail[num_units+2]={0};
   dfs(num_units+1, vis_tail, inverse_graph);
 
-<<<<<<< HEAD
-=======
   
   
->>>>>>> 46ee25e2a724ceb7b921fa2c5fa48121a7962e44
   int test_tail = accumulate(vis_tail, vis_tail+num_units+2, 0);
   // cout  <<  "test final tailings: " << test2 << endl;
   bool tail_pass = (test_tail == num_units+1) && (vis_tail[num_units] == 0);
