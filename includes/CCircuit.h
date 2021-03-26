@@ -1,4 +1,6 @@
 #pragma once
+#include <vector>
+
 using namespace std;
 
 const int num_units = 10;     ///< The number of units in circuit
