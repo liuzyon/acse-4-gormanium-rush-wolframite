@@ -1,14 +1,14 @@
 #pragma once
 using namespace std;
 
-const int num_units = 10;
+const int num_units = 10;     ///< The number of units in circuit
 
-const double circuit_gor = 10;
-const double circuit_waste = 100;
-const double purity_feed = 100*circuit_gor/(circuit_gor+circuit_waste);
+const double circuit_gor = 10;     ///< The gor flowrate in the circuit feed
+const double circuit_waste = 100;       ///< The waste flowrate in the circuit feed
+const double purity_feed = 100*circuit_gor/(circuit_gor+circuit_waste);    ///< The purity in the circuit feed
 
-const double gor_price = 100;
-const double waste_price = 500;
+const double gor_price = 100;      ///< The price of gor
+const double waste_price = 500;    ///< The price of waste
 
 /**
      * @brief check the validity of circuit
