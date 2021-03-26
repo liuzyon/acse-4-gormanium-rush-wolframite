@@ -1,8 +1,9 @@
 #include "Genetic_Algorithm.h"
-
+#include "CCircuit.h"
+#include "CUnit.h"
 
 int main(int argc, char * argv[])
 {
-    Genetic_algorithm();
-    return 0;
+    int solution[2 * num_units + 1];
+    Genetic_algorithm(solution);
 }
