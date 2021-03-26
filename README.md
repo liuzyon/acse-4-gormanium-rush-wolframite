@@ -9,6 +9,7 @@ Gormanium-Rush is a C++ package to implement optimised mineral recovery using Ge
 - [About Gormanium-Rush](#about-gormanium-rush)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Documentation](#documentation)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -55,7 +56,7 @@ conda install graphviz python-graphviz
 
 This section will introduce how to use Gormanium-Rush and give some simple examples.
 
-## Simulator
+### Simulator
 
 Run the main simulator with this command:
 
@@ -85,7 +86,7 @@ At generation: 630
 The best performace is: 165.76
 ```
 
-After this an info.txt would be generated in output folder, which is the dependent file of visualization.
+After this an [`info.txt`](https://github.com/acse-2020/acse-4-gormanium-rush-wolframite/blob/main/output/info.txt) would be generated in output folder, which is the dependent file of visualization.
 
 
 ### Visualization
@@ -94,7 +95,7 @@ Visualization relys on the file containing circuit configuration information, in
 After reading in this file, the number of units will be automatically calculated and the connection diagram will be drawn.
 In general, circuit simulation will automatically generate a document containing the best circuit configuration information. 
 
-The provided info.txt contains these informations of optimized circuit we got in simulator.
+The provided [`info.txt`](https://github.com/acse-2020/acse-4-gormanium-rush-wolframite/blob/main/output/info.txt) contains these informations of optimized circuit we got in simulator.
 
 To visualise the output circuit, run the following command:
 
@@ -105,7 +106,12 @@ python post_processing.py
 Then the circuit connection graph will be generated in output folder:
 ![image](https://github.com/acse-2020/acse-4-gormanium-rush-wolframite/blob/main/output/circuit.png)
 
-You can directly modify info.txt, enter your own vector and draw the circuit connection diagram.
+You can directly modify the [`info.txt`](https://github.com/acse-2020/acse-4-gormanium-rush-wolframite/blob/main/output/info.txt), enter your own vector and draw the circuit connection diagram.
+
+
+## Documentation
+
+To get documentation of Gormanium-Rush, open `index.html` in `docs/html` after installation.
 
 
 ## Contributing
@@ -114,7 +120,7 @@ Feel free to dive in! [Open an issue](https://github.com/acse-2020/acse-4-gorman
 
 ### Contributors
 
-This project exists thanks to all the [people who contributed](https://github.com/acse-2020/acse-4-gormanium-rush-wolframite/graphs/contributors).
+This project exists thanks to all the [people](https://github.com/acse-2020/acse-4-gormanium-rush-wolframite/graphs/contributors) who contributed.
 
 
 ## License
