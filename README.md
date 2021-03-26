@@ -23,7 +23,11 @@ The optimization algorithm used to find the solution is the genetic algorithm. I
 
 The performance of the circuit is evaluated by the adaptability function, and the circuit with better performance is selected by the selection function. In this problem, we use Linear ranking selection.
 
+<<<<<<< HEAD
 The post-processing module can convert any circuit vector into an image of the circuit that this vector represents. The `Graphviz` library was used in this module.
+=======
+After getting solution, the post-processing moudule can convert the circuit vector into an image of the circuit that this vector represents. `Graphviz` library was used in this module.
+>>>>>>> 8a84e12edb6f39f09e286d55b046b32bb5d5e457
 
 
 ## Installation
