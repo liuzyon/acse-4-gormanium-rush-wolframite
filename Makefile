@@ -28,7 +28,7 @@ clean:
 
 .PHONY: Genetic_Algorithm all clean
 
-TESTS = test1 test2
+TESTS = test1 test2 test3
 
 runtests: ${TESTS}
 	@python3 run_tests.py
@@ -39,10 +39,15 @@ test1: $(TEST_BIN_DIR)/test1
 
 test2: $(TEST_BIN_DIR)/test2
 
+test3: $(TEST_BIN_DIR)/test3
+
 $(TEST_BIN_DIR)/test1: $(TEST_BUILD_DIR)/test1.o $(BUILD_DIR)/CCircuit.o
 	$(CXX) -o $@ $^ $(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS)
 
 $(TEST_BIN_DIR)/test2: $(TEST_BUILD_DIR)/test2.o $(BUILD_DIR)/Genetic_Algorithm.o $(BUILD_DIR)/CUnit.o $(BUILD_DIR)/CCircuit.o
+	$(CXX) -o $@ $^ $(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS)
+
+$(TEST_BIN_DIR)/test3: $(TEST_BUILD_DIR)/test2.o $(BUILD_DIR)/Genetic_Algorithm.o $(BUILD_DIR)/CUnit.o $(BUILD_DIR)/CCircuit.o
 	$(CXX) -o $@ $^ $(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS)
 
 $(TEST_BUILD_DIR)/%.o: $(TEST_DIR)/%.cpp $(INCLUDE_DIR)/*.h | test_directories

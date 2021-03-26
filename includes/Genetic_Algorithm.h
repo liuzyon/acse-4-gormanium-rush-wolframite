@@ -8,7 +8,7 @@
 
 //Hyper parameters
 static int POP_SIZE = 150;
-static double CROSSOVER_RATE = 0.85;
+static double CROSSOVER_RATE = 0.8;
 static double MUTATION_RATE = 0.01;
 static int MAX_ITERATION = 5000;
 
@@ -35,6 +35,6 @@ void cross_over(solution* curt_pop, solution& child_1, solution& child_2);
 
 void mutation(solution& curt_sol);
 
-double Genetic_algorithm();
+void Genetic_algorithm(int* sol);
 
 void output(solution& best, int gen);

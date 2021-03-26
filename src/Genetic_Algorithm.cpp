@@ -163,7 +163,7 @@ void init_population(solution* pop) {
                 score = Evaluate_Circuit(pop[i].curit_vector, num_units, 1e-6, 10000);
                    
                 //The result doesn't converge
-                if (score == -50000) {
+                if (score == -circuit_waste * waste_price) {
                     valid = false;
                 }
                 
@@ -312,7 +312,7 @@ void print_vector(int* vec) {
 
 //Output the best solution to the txt file
 void output(solution& best, int gen) {
-    ofstream outfile("Output.txt");
+    ofstream outfile("../output/info.txt");
     for (int i = 0; i < 2 * num_units + 1; i++) {
         outfile << best.curit_vector[i] << " ";
     }
@@ -324,7 +324,8 @@ void output(solution& best, int gen) {
     outfile.close();
 }
 
-double Genetic_algorithm() {
+
+void Genetic_algorithm(int *sol) {
 
     solution* curt_pop = new solution[POP_SIZE];
     solution* child_pop = new solution[POP_SIZE];
@@ -342,6 +343,7 @@ double Genetic_algorithm() {
     int unchanged = 0;
     int best_gen = 0;
 
+    
     while (gen < MAX_ITERATION && unchanged < 500) {
         //std::cout << gen << std::endl;
         double pre_best = curt_pop[POP_SIZE - 1].fitness_value;
@@ -384,14 +386,14 @@ double Genetic_algorithm() {
 #pragma omp critical
                 {
                     //If score doesn't converge, it's invalid
-                    if (val1 && score_child1 != -50000 && child_ind < POP_SIZE) {
+                    if (val1 && score_child1 != -circuit_waste * waste_price && child_ind < POP_SIZE) {
                         child_1.fitness_value = score_child1;
                         copy_solution(child_1, child_pop[child_ind]);
                         child_ind++;
                     }
 
 
-                    if (val2  && score_child1 != -50000 && child_ind < POP_SIZE) {
+                    if (val2  && score_child1 != -circuit_waste * waste_price && child_ind < POP_SIZE) {
                         child_2.fitness_value = score_child2;
                         copy_solution(child_2, child_pop[child_ind]);
                         child_ind++;
@@ -438,6 +440,10 @@ double Genetic_algorithm() {
     std::cout << "The best performace is: " << best_fitness << std::endl;
 
     output(curt_pop[POP_SIZE - 1], best_gen);
+    
+    for (int i = 0; i < 2 * num_units + 1; i++) {
+        sol[i] = curt_pop[POP_SIZE - 1].curit_vector[i];
+    }
 
     //Free memory
     free_memory(curt_pop);
@@ -445,6 +451,6 @@ double Genetic_algorithm() {
     delete[] curt_pop;
     delete[] child_pop;
 
-    return best_fitness;
+    
 
 }

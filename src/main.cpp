@@ -1,6 +1,5 @@
 #include "Genetic_Algorithm.h"
 #include "CCircuit.h"
-
 int main(int argc, char * argv[])
 {
     cout << "Starting The Gormanium Rush..." << endl;
