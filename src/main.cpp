@@ -9,6 +9,7 @@ int main(int argc, char * argv[])
     cout << "Gormanium price: " << gor_price << "£/kg" << endl;
     cout << "Waste cost: " << waste_price << "£/kg" << endl;
     cout << "the number of units in a circuit: " << num_units << endl;
-    Genetic_algorithm();
+    int best_sol[2*num_units+1];
+    Genetic_algorithm(best_sol);
     return 0;
 }

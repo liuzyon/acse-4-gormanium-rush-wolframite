@@ -88,7 +88,7 @@ double Evaluate_Circuit(int *circuit_vector, int num_units, double tolerance, in
         Performance = - circuit_waste*waste_price;
     }
   
-    return Performance;
+    return std::ceil(Performance * 100.0) / 100.0;
 }
 
 //Randomly generate value from 0 to 1

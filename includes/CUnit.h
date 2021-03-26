@@ -44,6 +44,10 @@ public:
 
     double old_feed_rate;   ///< old feed rate in this unit
 
+    bool reachConcentrate;  ///< whether each unit directly access to the concentrate stream
+
+    bool reachTailings; ///< whether each unit directly access to the tailing stream
+    
     /**
      * @brief This is a function that set the id of unit
      * @param id : an integer argument

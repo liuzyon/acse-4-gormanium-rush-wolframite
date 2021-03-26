@@ -132,20 +132,6 @@ bool Check_Validity(int *circuit_vector)
     //build the connection between units
     int vector_index = 1;
     assignUnit(circuit_vector, 0, vector_index);
-    
-    /*
-    std::cout<<"circuit_vector="<<std::endl;
-    for(int i = 0; i < 2 * num_units + 1; ++i)
-    {
-        std::cout<<circuit_vector[i]<<" ";
-    }
-    std::cout<<std::endl;
-    std::cout<<"units="<<std::endl;
-    for(int i = 0; i < num_units; ++i)
-    {
-        std::cout<<i<<" con="<<units[i].conc_num<<" tail="<<units[i].tails_num<<std::endl;
-    }
-    */
 
     for(int i = 0; i < num_units; ++i)
     {
