@@ -162,10 +162,9 @@ void init_population(solution* pop) {
                     valid = Check_Validity(pop[i].curit_vector);
                 }
 
-                score = Evaluate_Circuit(pop[i].curit_vector,
-                    num_units, 1e-6, 10000);
-
-                // The result doesn't converge
+                score = Evaluate_Circuit(pop[i].curit_vector, num_units, 1e-6, 1000);
+                   
+                //The result doesn't converge
                 if (score == -circuit_waste * waste_price) {
                     valid = false;
                 }

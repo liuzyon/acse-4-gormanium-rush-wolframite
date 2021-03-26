@@ -1,7 +1,7 @@
 import graphviz
 
 
-def visualization(unit_num, vector, vector_string, iteration, performance):
+def visualization(unit_num, vector, vector_string, iteration, performance, name='circuit', folder='output'):
     """
     This function can draw the circuit connection graph with input information.
     The graph will be generated in png format in the output folder.
@@ -59,7 +59,7 @@ def visualization(unit_num, vector, vector_string, iteration, performance):
 
     # Write to disk
     vec.render(
-        filename='circuit', directory='output', cleanup=True, format='png'
+        filename=name, directory=folder, cleanup=True, format='png'
         )
 
 
