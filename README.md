@@ -23,7 +23,7 @@ The optimization algorithm used to find the solution is the genetic algorithm. I
 
 The performance of the circuit is evaluated by the adaptability function, and the circuit with better performance is selected by the selection function. In this problem, we use Linear ranking selection.
 
-Post-processing moudule can convert any circuit vector into an image of the circuit that this vector represents. Graphviz library was used in this module.
+Post-processing moudule can convert any circuit vector into an image of the circuit that this vector represents. `Graphviz` library was used in this module.
 
 
 ## Installation
@@ -39,7 +39,7 @@ cd acse-4-gormanium-rush-wolframite
 make
 ```
 
-The visualization python module requires a working python installation of Graphviz. For conda users a working environment can be 
+The visualization python module requires a working python installation of `Graphviz`. For conda users a working environment can be 
 
 ```
 conda env create -f environment.yml
