@@ -34,8 +34,8 @@ To install Gormanium-Rush, run the following commands:
 git clone https://github.com/acse-2020/acse-4-gormanium-rush-wolframite.git
 cd acse-4-gormanium-rush-wolframite
 
-# install pre-requisites
-pip install -r requirements.txt
+# install pre-requisites with makefile
+make
 ```
 
 The visualization python module requires a working python installation of Graphviz. For conda users a working environment can be 
@@ -80,9 +80,9 @@ Then the simulating process would start. When the finished, the information of o
 
 ```
 The best vector is:
-3 7 8 10 7 3 11 7 0 10 1 9 2 7 5 4 9 7 6 4 3
-At generation: 53
-The best performace is: 144.14
+9 4 8 10 4 7 11 1 7 1 3 3 2 4 5 1 9 4 6 4 0
+At generation: 630
+The best performace is: 165.76
 ```
 
 After this an info.txt would be generated in output folder, which is the dependent file of visualization.
@@ -94,13 +94,7 @@ Visualization relys on the file containing circuit configuration information, in
 After reading in this file, the number of units will be automatically calculated and the connection diagram will be drawn.
 In general, circuit simulation will automatically generate a document containing the best circuit configuration information. 
 
-The provided eg_info.txt contains these informations:
-
-Citcuit vector: 7 5 1 8 11 9 0 9 6 10 9 4 8 9 2 9 3 4 7 4 5 
-
-Iteration times: 1000
-
-performance score: 165.753
+The provided info.txt contains these informations of optimized circuit we got in simulator.
 
 To visualise the output circuit, run the following command:
 
@@ -109,7 +103,7 @@ python post_processing.py
 ```
 
 Then the circuit connection graph will be generated in output folder:
-![image](https://github.com/acse-2020/acse-4-gormanium-rush-wolframite/blob/main/output/eg_circuit.png)
+![image](https://github.com/acse-2020/acse-4-gormanium-rush-wolframite/blob/main/output/circuit.png)
 
 You can directly modify info.txt, enter your own vector and draw the circuit connection diagram.
 
