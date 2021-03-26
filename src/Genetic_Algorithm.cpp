@@ -1,4 +1,6 @@
 #include "Genetic_Algorithm.h"
+#include "CUnit.h"
+#include "CCircuit.h"
 
 
 double Evaluate_Circuit(int* circuit_vector, int num_units, double tolerance, int max_iterations) {
