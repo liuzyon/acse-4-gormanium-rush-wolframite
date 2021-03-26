@@ -1,4 +1,6 @@
 #include "Genetic_Algorithm.h"
+#include "CUnit.h"
+#include "CCircuit.h"
 
 
 double Evaluate_Circuit(int* circuit_vector, int num_units, double tolerance, int max_iterations) {
@@ -338,8 +340,6 @@ double Genetic_algorithm() {
     int unchanged = 0;
     int best_gen = 0;
 
-    int rand_num = (omp_get_thread_num() + 1) * (int)time(NULL);
-    srand(rand_num);
     while (gen < MAX_ITERATION && unchanged < 500) {
         //std::cout << gen << std::endl;
         double pre_best = curt_pop[POP_SIZE - 1].fitness_value;

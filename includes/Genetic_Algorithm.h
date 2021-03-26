@@ -4,8 +4,6 @@
 #include <cmath>
 #include <fstream>
 #include <iostream>
-#include "CUnit.h"
-#include "CCircuit.h"
 #include <omp.h>
 
 //Hyper parameters
