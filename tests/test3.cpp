@@ -62,7 +62,7 @@ void Genetic_algorithm_test(int a[]) {
 
 
             if (val1) {
-                child_1.fitness_value = Evaluate_Circuit(child_1.curit_vector, 1e-6, 1000);
+                child_1.fitness_value = Evaluate_Circuit(child_1.curit_vector,10, 1e-6, 1000);
                 //std::cout << child_1.fitness_value << std::endl;
                 copy_solution(child_1, child_pop[child_ind]);
                 child_ind++;
@@ -70,7 +70,7 @@ void Genetic_algorithm_test(int a[]) {
 
 
             if (val2 && child_ind < POP_SIZE) {
-                child_2.fitness_value = Evaluate_Circuit(child_2.curit_vector, 1e-6, 1000);
+                child_2.fitness_value = Evaluate_Circuit(child_2.curit_vector,10, 1e-6, 1000);
                 //std::cout << child_2.fitness_value << std::endl;
                 copy_solution(child_2, child_pop[child_ind]);
                 child_ind++;

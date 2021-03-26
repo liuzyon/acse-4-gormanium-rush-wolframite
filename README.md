@@ -9,7 +9,6 @@ Gormanium-Rush is a C++ package to implement optimised mineral recovery using Ge
 - [About Gormanium-Rush](#about-gormanium-rush)
 - [Installation](#installation)
 - [Usage](#usage)
-- [API](#API)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -22,6 +21,7 @@ Gormanium-Rush can determine the optimum circuit configuration and performance f
 ## Installation
 
 To install Gormanium-Rush, run the following commands:
+
 ```
 # get the code
 git clone https://github.com/acse-2020/acse-4-gormanium-rush-wolframite.git
@@ -31,26 +31,42 @@ cd acse-4-gormanium-rush-wolframite
 pip install -r requirements.txt
 ```
 
+The visualization python module requires a working python installation of Graphviz. For conda users a working environment can be 
+
+```
+conda env create -f environment.yml
+conda activate acse-4-p3
+```
+
+or you can (conda) install the packages yourself
+```
+conda install graphviz python-graphviz
+```
+
 ### Automated testing
 
 
 ## Usage
 
 To use Gormanium-Rush, first run the main simulator with this command:
+
 ```
 # run main simulator
 gcc src/main.cpp
 ```
-This will generate output.txt, which is the dependent file of visualization.
+
+This will generate info.txt in output folder, which is the dependent file of visualization.
 
 To visualise the output circuit, run the following command:
+
 ```
-python Post_Processing.py
+python post_processing.py
 ```
+
 Then the circuit connection graph will be generated in output folder.
 
-
-## API
+### Examples
+See [here](https://github.com/acse-2020/acse-4-gormanium-rush-wolframite/tree/main/examples) for further examples.
 
 
 ## Contributing
@@ -59,10 +75,10 @@ Feel free to dive in! [Open an issue](https://github.com/acse-2020/acse-4-gorman
 
 ### Contributors
 
-This project exists thanks to all the people who contributed.
-<a href="https://github.com/acse-2020/acse-4-gormanium-rush-wolframite/graphs/contributors"><img src="https://opencollective.com/acse-4-gormanium-rush-wolframite/contributors.svg?width=890&button=false" /></a>
+This project exists thanks to all the [people who contributed](https://github.com/acse-2020/acse-4-gormanium-rush-wolframite/graphs/contributors).
 
 
 ## License
 
 [MIT](LICENSE) © acse-2020 group Wolframite
+

@@ -59,13 +59,13 @@ def visualization(unit_num, vector, vector_string, iteration, performance):
 
     # Write to disk
     vec.render(
-        filename='circuit', directory='output', cleanup=True, format='png'
+        filename='eg_circuit', directory='output', cleanup=True, format='png'
         )
 
 
 if __name__ == "__main__":
     # Read in information
-    with open("output/output.txt", "r") as f:
+    with open("output/eg_info.txt", "r") as f:
         data = f.readlines()
 
     vector_string = data[0].strip('\n')
