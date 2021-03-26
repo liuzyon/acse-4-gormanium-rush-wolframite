@@ -53,14 +53,54 @@ conda install graphviz python-graphviz
 
 ## Usage
 
-To use Gormanium-Rush, first run the main simulator with this command:
+This section will introduce how to use Gormanium-Rush and give some simple examples.
+
+## Simulator
+
+Run the main simulator with this command:
 
 ```
 # run main simulator
-gcc src/main.cpp
+g++ src/main.cpp
 ```
 
-This will generate info.txt in output folder, which is the dependent file of visualization.
+Firstly, the parameters used would be printed in console:
+
+```
+Starting The Gormanium Rush...
+Gormanium feed rate: 10kg/s
+Waste feed rate: 100kg/s
+Purity of feed stream: 9.09091%
+Gormanium price: 100£/kg
+Waste cost: 500£/kg
+The number of units in a circuit: 10
+```
+
+Then the simulating process would start. When the finished, the information of optimized circuit would be print.
+
+```
+The best vector is:
+3 7 8 10 7 3 11 7 0 10 1 9 2 7 5 4 9 7 6 4 3
+At generation: 53
+The best performace is: 144.14
+```
+
+After this an info.txt would be generated in output folder, which is the dependent file of visualization.
+
+
+### Visualization
+
+Visualization relys on the file containing circuit configuration information, including circuit vector, iterations times, and performance score.
+After reading in this file, the number of units will be automatically calculated and the connection diagram will be drawn.
+In general, circuit simulation will automatically generate a document containing the best circuit configuration information. 
+
+The provided eg_info.txt contains these informations:
+
+Citcuit vector: 7 5 1 8 11 9 0 9 6 10 9 4 8 9 2 9 3 4 7 4 5 
+
+Iteration times: 1000
+
+performance score: 165.753
 
 To visualise the output circuit, run the following command:
 
@@ -68,10 +108,10 @@ To visualise the output circuit, run the following command:
 python post_processing.py
 ```
 
-Then the circuit connection graph will be generated in output folder.
+Then the circuit connection graph will be generated in output folder:
+![image](https://github.com/acse-2020/acse-4-gormanium-rush-wolframite/blob/main/output/eg_circuit.png)
 
-### Examples
-See [here](https://github.com/acse-2020/acse-4-gormanium-rush-wolframite/tree/main/examples) for further detailed examples.
+You can directly modify info.txt, enter your own vector and draw the circuit connection diagram.
 
 
 ## Contributing
