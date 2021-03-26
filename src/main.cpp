@@ -3,6 +3,7 @@
 
 int main(int argc, char * argv[])
 {
-    Genetic_algorithm();
+    int sol[2*num_units + 1];
+    Genetic_algorithm(sol);
     return 0;
 }
