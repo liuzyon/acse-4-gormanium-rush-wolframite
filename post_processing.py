@@ -1,5 +1,6 @@
 import graphviz
 
+__all__ = ['visualization']
 
 def visualization(unit_num, vector, vector_string, iteration, performance, name='circuit', folder='output'):
     """

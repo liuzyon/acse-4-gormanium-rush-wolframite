@@ -16,14 +16,14 @@ Gormanium-Rush is a C++ package to implement optimised mineral recovery using Ge
 
 ## About Gormanium-Rush
 
-Gormanium-Rush can determine the optimum circuit configuration and performance for valuable-material-recycling circuit that contains several separation units. Each unit and overall circuit produce two products: a concentrate stream and a tailings stream. Parameters that affect the optimum circuit including the number of units, the price paid for gormanium relative to the cost of disposing of the waste material, and the purity of the input feed. The optimum circuit will be an economic decision based on the balance between how much should be paid for the product and penalised for a lack purity. Therefore, it's a compromise between the overall recovery (total mass of valuable material recovered) and purity (proportion of valuable material to the total material recovered).
+Gormanium-Rush can determine the optimum circuit configuration and performance for a valuable-material-recycling circuit that contains several separation units. Each unit and the overall circuit produce two products: a concentrate stream and a tailings stream. Parameters that affect the optimum circuit configuration include the number of units, the price paid for gormanium relative to the cost of disposing of the waste material, and the purity of the input feed. The optimum circuit will be an economic decision based on the balance between how much should be paid for the product and penalised for a lack of purity. Therefore, it's a compromise between the overall recovery (total mass of valuable material recovered) and purity (proportion of valuable material to the total material recovered).
 
 The optimization algorithm used to find the solution is the genetic algorithm. It works in a manner similar to natural selection. The heart of the algorithm is a representation of the problem as a vector of numbers (genetic code). In this problem, the genetic code represents the connections in the circuit:
 ![image](https://github.com/acse-2020/acse-4-gormanium-rush-wolframite/blob/main/resources/circuit-vector.jpg)
 
 The performance of the circuit is evaluated by the adaptability function, and the circuit with better performance is selected by the selection function. In this problem, we use Linear ranking selection.
 
-Post-processing moudule can convert any circuit vector into an image of the circuit that this vector represents. `Graphviz` library was used in this module.
+The post-processing module can convert any circuit vector into an image of the circuit that this vector represents. The `Graphviz` library was used in this module.
 
 
 ## Installation
@@ -39,7 +39,7 @@ cd acse-4-gormanium-rush-wolframite
 make
 ```
 
-The visualization python module requires a working python installation of `Graphviz`. For conda users a working environment can be 
+The visualisation python module requires a working python installation of `Graphviz`. For conda users a working environment can be
 
 ```
 conda env create -f environment.yml
@@ -54,7 +54,7 @@ conda install graphviz python-graphviz
 
 ## Usage
 
-This section will introduce how to use Gormanium-Rush and give some simple examples.
+This section will introduce on how to use Gormanium-Rush and give a few simple examples.
 
 ### Simulator
 
@@ -77,7 +77,7 @@ Waste cost: 500£/kg
 The number of units in a circuit: 10
 ```
 
-Then the simulating process would start. When the finished, the information of optimized circuit would be print.
+Then the simulating process would start. When finished, the information of the optimised circuit configuration would be printed.
 
 ```
 The best vector is:
@@ -86,16 +86,16 @@ At generation: 630
 The best performace is: 165.76
 ```
 
-After this an [`info.txt`](https://github.com/acse-2020/acse-4-gormanium-rush-wolframite/blob/main/output/info.txt) would be generated in output folder, which is the dependent file of visualization.
+After this an [`info.txt`](https://github.com/acse-2020/acse-4-gormanium-rush-wolframite/blob/main/output/info.txt) would be generated in the output folder, which is the dependent file of visualisation.
 
 
-### Visualization
+### Visualisation
 
-Visualization relys on the file containing circuit configuration information, including circuit vector, iterations times, and performance score.
+Visualisation relies on the file containing the circuit configuration information, including the circuit vector, number of iterations, and performance score.
 After reading in this file, the number of units will be automatically calculated and the connection diagram will be drawn.
-In general, circuit simulation will automatically generate a document containing the best circuit configuration information. 
+In general, circuit simulation will automatically generate a document containing the best circuit configuration information.
 
-The provided [`info.txt`](https://github.com/acse-2020/acse-4-gormanium-rush-wolframite/blob/main/output/info.txt) contains these informations of optimized circuit we got in simulator.
+The provided [`info.txt`](https://github.com/acse-2020/acse-4-gormanium-rush-wolframite/blob/main/output/info.txt) contains these informations of optimised circuit we got in the simulator.
 
 To visualise the output circuit, run the following command:
 
@@ -103,7 +103,7 @@ To visualise the output circuit, run the following command:
 python post_processing.py
 ```
 
-Then the circuit connection graph will be generated in output folder:
+Then the circuit connection graph will be generated in the output folder:
 ![image](https://github.com/acse-2020/acse-4-gormanium-rush-wolframite/blob/main/output/circuit.png)
 
 You can directly modify the [`info.txt`](https://github.com/acse-2020/acse-4-gormanium-rush-wolframite/blob/main/output/info.txt), enter your own vector and draw the circuit connection diagram.
@@ -126,4 +126,3 @@ This project exists thanks to all the [people](https://github.com/acse-2020/acse
 ## License
 
 [MIT](LICENSE) © acse-2020 group Wolframite
-
