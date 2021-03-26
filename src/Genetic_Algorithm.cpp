@@ -3,22 +3,19 @@
 #include "CCircuit.h"
 
 
-double Evaluate_Circuit(int* circuit_vector, int num_units, double tolerance, int max_iterations) {
-
-    // int vector_size = 2*num_units+1;
-
-    //´´½¨¸÷¸öunit
+double Evaluate_Circuit(int *circuit_vector, int num_units, double tolerance, int max_iterations) {
+    // create an array of units in the circuit
     std::vector<CUnit> units(num_units);
 
-    // ¸³ÖµÃ¿¸öunit id, ÒÔ¼°Á¬½Óµ½¾«¿óÁ÷ºÍÎ²¿óÁ÷µÄµ¥Ôªid
+    // Initilization: set units id and their connections
     for (int i = 0; i < num_units; i++)
     {
         units[i].setId(i);
-        units[i].conc_num = circuit_vector[i * 2 + 1];
-        units[i].tails_num = circuit_vector[i * 2 + 2];
+        units[i].conc_num = circuit_vector[i*2+1];
+        units[i].tails_num = circuit_vector[i*2+2];
     }
 
-    //¸ø³ö¸øµçÂ·ÖÐÃ¿¸öµ¥ÔªµÄÁ½¸ö³É·Ö½øÁÏËÙÂÊµÄ³õ²½²Â²â
+    // Give an initial guess for the feed rate of both components to every cell in the circuit
     for (int i = 0; i < num_units; i++)
     {
         units[i].init();
@@ -28,22 +25,24 @@ double Evaluate_Circuit(int* circuit_vector, int num_units, double tolerance, in
     int steady_unit = 0;
     while (iter_num < max_iterations)
     {
-        // ¶ÔÓÚÃ¿¸öµ¥Ôª£¬Ê¹ÓÃµ±Ç°¶Ô½øÁÏÁ÷ËÙµÄ²Â²âÀ´¼ÆËã¾«¿óºÍÎ²¿óÁ÷ÖÐÃ¿¸ö×é·ÖµÄÁ÷ËÙ£¨¼´¸ù¾ÝÇ°ÃæÌáµ½µÄ±ÈÀý£©ÕâÀï¿ÉÒÔÐ´³É³ÉÔ±·½·¨
+        // For each unit use the current guess of the feed flowrates to calculate the flowrate of each component in both the concentrate and tailings streams
         for (int i = 0; i < num_units; i++)
         {
             units[i].cal_con_tail();
         }
 
-        // ¶ÔÃ¿¸öµ¥Ôª£¬½«½øÁÏµÄµ±Ç°Öµ´æ´¢ÆðÀ´×÷Îª¾É½øÁÏÖµ£¬²¢½«ËùÓÐ×é·ÖµÄµ±Ç°½øÁÏÖµÉèÖÃÎª0 ÕâÀï¿ÉÒÔÐ´×÷³ÉÔ±·½·¨
+        // Store the current value of the feed to each cell as an old feed value and set the current value for all components to zero
         for (int i = 0; i < num_units; i++)
         {
             units[i].reset();
         }
-
-        // ÉèÖÃ½ÓÊÕ»·Â·½øÁÏµÄÄÇ¸öµ¥ÔªµÄ½øÁÏµÈÓÚ»·Â·½øÁÏµÄ×ÜÁ÷ËÙ
+    
+        // Set the feed to the cell receiving the circuit feed equal to the flowrates of the circuit feed
         units[circuit_vector[0]].init();
 
-        // ¼ì²éÃ¿¸öµ¥Ôª£¬½«Æä¾«¿óÁ÷ËÙºÍÎ²¿óÁ÷ËÙ¼Óµ½ºÏÊÊµ¥ÔªµÄ½øÁÏÉÏ£¨»ùÓÚ»·Â·ÏòÁ¿ÖÐ¸÷µ¥ÔªµÄ¹ØÏµ£©£¬ÕâÒ²½«µ¼ÖÂ¶ÔÕû¸ö»·Â·µÄ¾«¿óÁ÷ºÍÎ²¿óÁ÷µÄ×îÐÂ¹À¼Æ
+        // Go over each unit and add the concentrate and tailings flows to the appropriate unitâ€™s feed
+        // based on the linkages in the circuit vector. This will also result in an updated estimate for the
+        // overall circuit concentrate and tailings streamsâ€™ flows.
         for (int i = 0; i < num_units; i++)
         {
             if (units[i].conc_num < num_units)
@@ -58,7 +57,8 @@ double Evaluate_Circuit(int* circuit_vector, int num_units, double tolerance, in
         }
 
         steady_unit = 0;
-        // ¶ÔÃ¿¸öµ¥Ôª£¬ÓÃÐÂµÄ½øÁÏÁ÷Á¿ºÍ¾ÉµÄ½øÁÏÁ÷ËÙ£¨Ö®Ç°´æµÄ£©×÷±È½Ï¡£Èç¹ûÈÎºÎÒ»¸öµ¥ÔªËüµÄÏà¶Ô±ä»¯ÔÚ¸ø¶¨µÄÉè¶¨ãÐÖµÖ®ÉÏ£¬ÔòÖØ¸´²½Öè2¡£ ±È½Ï¿ÉÒÔÐ´×÷³ÉÔ±·½·¨
+        // Check the difference between the newly calculated feed rate and the old feed rate for each cell.
+        // If any of them have a relative change that is above a given threshold then repeat from step 2; otherwise, leave the loop.
         for (int i = 0; i < num_units; i++)
         {
             double error = units[i].compare_to_old();
@@ -70,22 +70,24 @@ double Evaluate_Circuit(int* circuit_vector, int num_units, double tolerance, in
 
         if (steady_unit == num_units) break;
         iter_num++;
-    }
+    }  
 
+    //  Based on the flowrates of the overall circuit concentrate stream, calculate a performance value for the circuit. 
     int concentrate_num = num_units;
     double Performance = 0.0;
 
-    if (steady_unit == num_units) {
+    if (steady_unit == num_units){
         for (int i = 0; i < num_units; i++) {
-            if (units[i].conc_num == concentrate_num) {
-                Performance += (units[i].conc_gor_rate * 100 - units[i].conc_waste_rate * 500);
+            if(units[i].conc_num == concentrate_num){
+                Performance += (units[i].conc_gor_rate*gor_price - units[i].conc_waste_rate*waste_price);
             }
         }
+    }else{
+        // If there is no convergence, use the worst possible performance as the performance value 
+        // the flowrate of waste in the feed times the value of the waste, which is usually a negative number
+        Performance = - circuit_waste*waste_price;
     }
-    else {
-        Performance = -circuit_waste * 500;
-    }
-
+  
     return Performance;
 }
 
